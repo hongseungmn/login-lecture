@@ -22,10 +22,14 @@ function login() {
     fetch("/login",{ //json객체는 문자열로 감싸져 있다
         method:"POST", //body를 통해서 전달할 때는 http메서드 중에서 POST
         headers:{
-            "content-Type" : "applecation/json" 
+            "content-Type" : "application/json" 
         },
-        body:JSON.stringify(req)
-    });
+        body:JSON.stringify(req),
+    })
+    .then((req)=> res.JSON())
+    .then(console.log);//함수의 매개변수와 사용하는 변수가 같을 때에는 생략이 가능하다. then((res)=> console.log(res));
+        
+    
 };
 
 
