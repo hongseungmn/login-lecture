@@ -26,8 +26,21 @@ function login() {
         },
         body:JSON.stringify(req),
     })
-    .then((req)=> res.JSON())
-    .then(console.log);//함수의 매개변수와 사용하는 변수가 같을 때에는 생략이 가능하다. then((res)=> console.log(res));
+        .then((req)=> res.json())
+        .then((res) => {
+            if (res.success) {
+                location.href = "/";
+            }
+            else {
+                alert(res.msg);
+            }
+        })
+        .catch((err) => {
+            console.error(new Error("로그인 에러 발생"));
+        });
+
+    });
+    
         
     
 };
